@@ -1,38 +1,167 @@
-.App {
-  text-align: center;
+
+
+/* =========================================*
+    BOILERPLATE
+
+    Remove default padding & margin,
+    set body and below to border-box box-sizing,
+    standardize fonts, and make rem units base-10.
+
+    Citation: Chris Mayes used this boilerplate
+    in their 290 Project (and in most of their
+    CSS projects)
+*  =========================================*/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+    font-size: 62.5%; /* 1rem = 10px for most default browser settings */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ body {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* =========================================*
+    COLOR SCHEME
+*  =========================================*/
+
+:root{
+  --root-bg: #157145;
+  --prompt-font: #57A773;
+  --grid-bg: #648EAE;
+  --question-font: #9BD1E5;
+  --sections-bg: #D1FAFF;
+  --sections-bg-hover: #a0e2eb;
+  --sections-bg-correct: #57A773;
+  --sections-bg-wrong: rgb(235, 124, 124);
+}
+
+.app{
+  background-color: var(--root-bg)
+}
+
+/* =========================================*
+    FORMATTING (Grid parent, flexbox children)
+*  =========================================*/
+
+.flex-root{ /* root of entire document, centers grid */
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.quiz-grid {
+    display: grid;
+    grid-template-rows: 2vh 20vh 36vh 36vh 2vh;
+    grid-template-columns: 1vw 44.5vw 44.5vw 1vw;
+    grid-template-areas:
+        "b-top b-top b-top b-top" /* top border */
+        "b-left prompt prompt b-right"
+        "b-left a1 a2 b-right"
+        "b-left a3 a4 b-right"
+        "b-bot b-bot b-bot b-bot";
+    grid-gap: 1vh 1vh;
+    background-color: var(--grid-bg);
+    width: 92.5vw;
+    height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+  /* img citation: https://pixabay.com/photos/space-deep-space-galaxy-nebula-2638126/ */
+.quiz-grid__prompt{
+  
+  /* Flex (as parent) */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  /* Grid (as child) */
+  grid-area: prompt;
+  
+  /* section styling */
+  background-color: var(--sections-bg);
+  color: var(--dark_green);
+  font-weight: bold;
+  border-radius: 2px;
+  border: 1px solid var(--question-font)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.quiz-grid__answer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: var(--sections-bg);
+  color: rgb(36, 36, 36);
+  border-radius: 2px;
+  border: 1px solid var(--question-font);
+  padding: 4rem;
+}
+
+.quiz-grid__answer:hover {
+  background-color: var(--sections-bg-hover);
+  border: 2px solid var(--root-bg)
+}
+
+.quiz-grid__answer--selected-red, .quiz-grid__answer--selected-red:hover {
+  background-color: var(--sections-bg-wrong);
+  border: 2px solid red;
+  color: rgb(100, 6, 6);
+
+}
+
+.quiz-grid__answer--selected-green, .quiz-grid__answer--selected-green:hover {
+  background-color: var(--sections-bg-correct);
+  border: 2px solid green;
+  color: rgb(11, 73, 11)
+}
+
+.quiz-grid__border {
+  background-color: var(--grid-bg)
+}
+
+.quiz-grid__border--top{
+  grid-area: b-top
+}
+.quiz-grid__border--left{
+  grid-area: b-left
+}
+.quiz-grid__border--right{
+  grid-area: b-right
+}
+.quiz-grid__border--bottom{
+  grid-area: b-bot
+}
+
+.quiz-grid__answer--1{
+  grid-area: a1  
+}
+
+.quiz-grid__answer--2{
+  grid-area: a2 
+}
+
+.quiz-grid__answer--3{
+  grid-area: a3
+}
+
+.quiz-grid__answer--4{
+  grid-area: a4  
+}
+
+/* =========================================*
+      Non-Formatting Components
+*  =========================================*/
+
+h2 {
+  font-size: 2rem;
+  color: rgb(20, 20, 20);
 }
