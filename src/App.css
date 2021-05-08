@@ -33,18 +33,19 @@ html{
 *  =========================================*/
 
 :root{
-  --root-bg: rgba(61, 38, 69, 0.5);
-  --prompt-font: #DA5167;
-  --grid-bg: rgba(131, 33, 97, 0.75);
-  --question-font: #000000;
-  --sections-bg: #F0eFF4;
-  --sections-bg-hover: #cbc8d6;
+  --root-bg: rgb(124, 96, 107, 0.7);
+  --prompt-font: #7C606B;
+  --grid-bg: rgb(196, 107, 174, 0.95);
+  --question-font: #7C606B;
+  --prompt-bg: #EED5C2;
+  --sections-bg: #f392ce;
+  --sections-bg-hover: #EED5C2;
   --sections-bg-correct: #71c48e;
   --sections-bg-wrong: rgb(241, 135, 135);
 }
 
 .app{
-    background: linear-gradient(var(--root-bg), var(--root-bg)), url('./space.jpg');
+    background: linear-gradient(var(--root-bg), var(--root-bg)), url('./microchip.jpg');
 }
 
 /* =========================================*
@@ -58,6 +59,7 @@ html{
   align-items: center;
   justify-content: center;
 }
+
 .quiz-grid {
     display: grid;
     grid-template-rows: 2vh 20vh 36vh 36vh 2vh;
@@ -69,12 +71,12 @@ html{
         "b-left a3 a4 b-right"
         "b-bot b-bot b-bot b-bot";
     grid-gap: 1vh 1vh;
-    background: linear-gradient(var(--grid-bg), var(--grid-bg)), url('./space.jpg');
+    background: linear-gradient(var(--grid-bg), var(--grid-bg)), url('./microchip.jpg');
     width: 92.5vw;
     height: 100vh;
 }
 
-  /* img citation: https://pixabay.com/photos/space-deep-space-galaxy-nebula-2638126/ */
+  /* img citation: https://www.vecteezy.com/vector-art/119490-microchip-background */
 .quiz-grid__prompt{
   
   /* Flex (as parent) */
@@ -93,6 +95,7 @@ html{
   font-weight: bold;
   border-radius: 2px;
   padding: 1rem;
+  background-color: var(--prompt-bg)
 
 }
 
@@ -106,6 +109,7 @@ html{
   border-radius: 10px;
   padding: 4rem;
   font-size: 1.2rem;
+  border: 3px solid var(--prompt-font)
 }
 
 .quiz-grid__answer:hover {
@@ -127,7 +131,7 @@ html{
 }
 
 .quiz-grid__border {
-    background: linear-gradient(var(--grid-bg), var(--grid-bg)), url('./space.jpg');
+    background: linear-gradient(var(--grid-bg), var(--grid-bg)), url('./microchip.jpg');
 }
 
 .quiz-grid__border--top{
@@ -170,7 +174,7 @@ h2 {
 
 .next-button {
   border-radius: 15px;
-  background: var(--sections-bg);
+  background: var(--prompt-bg);
   color: var(--prompt-font);
   border: solid 3px var(--prompt-font);
   width: 30rem;
@@ -182,6 +186,6 @@ h2 {
 }
 
 .next-button:hover {
-  color: var(--sections-bg);
+  color: var(--prompt-bg);
   background: var(--prompt-font)
 }
