@@ -13,6 +13,9 @@ function QuizPage() {
   const [selected, setSelected] = useState([]);
 
   function getNextQuestion() {
+    /* DESCRIPTION: Update memo to remember this question (memo[currentIndex] = true),
+    then get a random index and update state to reflect questions[randomIndex] */
+
     const [memoCpy, i] = getRandomIndex(questions, memo);
     setMemo(memoCpy);
     setCurrentQuestion(questions[i]);
@@ -20,6 +23,9 @@ function QuizPage() {
   }
 
   function processAnswer(e) {
+    /* DESCRIPTION: If the clicked-on answer's index is not in the state.selected array, then add it. 
+    If the answer is correct, then also add all wrong answer indices to state.selected. */
+
     const id = parseInt(e.target.id[0]);
     if(selected.includes(id))
       return;
@@ -35,19 +41,23 @@ function QuizPage() {
   return (
     <div className="app flex-root">
       <main className="quiz-grid">
+        {/* GRID FORMATTING */}
         <div className="quiz-grid__border quiz-grid__border--left"></div>
         <div className="quiz-grid__border quiz-grid__border--right"></div>
         <div className="quiz-grid__border quiz-grid__border--top"></div>
         <div className="quiz-grid__border quiz-grid__border--bottom"></div>
+
+        {/* PROMPT */}
         <section className="quiz-grid__prompt">
           <div><h1>{currentQuestion ? currentQuestion.prompt : null}</h1></div>
           <button className="next-button" onClick={() => getNextQuestion()}>Next Question</button>
         </section>
 
-
+        {/* ANSWERS */}
         {currentQuestion.answers.map((_, i) => {
           return (
-            //Each answer is a section with the following listener, class and id:
+            // for answer in answers, render a section with the listener, class, id, and key
+            // given below.
             <section
               onClick={(e) => processAnswer(e)}
               className={[
@@ -61,15 +71,15 @@ function QuizPage() {
               key={`key:section-${i}`}
             >
 
-              {/* Answer */}
+              {/* Answer - render if state.currentQuestion is defined. */}
               <div id={`${i}-answer-div`}>
                 <h1 id={`${i}-answer-h1`}>
                   {currentQuestion ? currentQuestion.answers[i].answer : null}
                 </h1>
               </div>
               
-              {/* Explanation */}
-              {selected.includes(i) ? 
+              {/* Explanation - render only if answer index is in state.selected */}
+              {selected.includes(i) ?
                 <div id={`${i}-exp-div`}>
                   <h2 id={`${i}-exp-h2`}>
                     {currentQuestion.answers[i].explanation}

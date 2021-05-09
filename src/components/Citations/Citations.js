@@ -30,6 +30,9 @@ function Citations(){
                 <div>
                     <h1 className="citation-header">Other</h1>
                     For CSS boilerplate (marked as such in index.css), I borrowed some CSS from previous projects at OSU.
+
+                    Additionally, the questions under the Quiz are all drawn from the wikipedia pages on database transactions
+                    and ACID properties, which were shared on Canvas as part of this assignment.
                 </div>
             </main>
         </div>
