@@ -1,0 +1,42 @@
+.modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    width: 70vw;
+    background-color: var(--prompt-font);
+    color: var(--sections-bg);
+    justify-self: center;
+    padding: 10rem;
+}
+
+.modal > div {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 30%;
+    font-size: 2rem;
+    color: black;
+    margin: 5rem 0rem;
+    width: 100%;
+}
+
+.modal > div > h1 {
+    font-size: 2.5rem;
+    color: var(--sections-bg)
+}
+
+.modal > div > a {
+    display: inline;
+}
+
+.flex-parent{ /* root of entire document, centers grid */
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

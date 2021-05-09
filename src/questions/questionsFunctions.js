@@ -1,4 +1,6 @@
-function genRandom(min, max) { 
+import questionsData from './questionsData';
+
+export function genRandom(min, max) { 
     /** DESCRIPTION: generates a random integer in the range [min, max] 
      * 
      * @param {Number} min
@@ -73,5 +75,8 @@ export function getRandomIndex(arr, memo={}){
             i = 0
         }
     }
-
 }
+
+const questions = randomizeAnswerOrder(questionsData);
+const [memo, index] = getRandomIndex(questions);
+export const randomizedQuestions = { questions, index, memo };

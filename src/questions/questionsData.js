@@ -12,7 +12,7 @@ class Question {
         this.answers = answers;
     }
 }
-const questions = [
+const questionsData = [
     new Question(
         "What is a database transaction?",
         [ 
@@ -356,4 +356,4 @@ const questions = [
     )
 ]
 
-export default questions;
+export default questionsData;

@@ -1,13 +1,50 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* =========================================*
+    BOILERPLATE
+
+    Remove default padding & margin,
+    set body and below to border-box box-sizing,
+    standardize fonts, and make rem units base-10.
+
+    Citation: Chris Mayes used this boilerplate
+    in their 290 Project (and in most of their
+    CSS projects)
+*  =========================================*/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html{
+    font-size: 62.5%; /* 1rem = 10px for most default browser settings */
+}
+
+ body {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+h1{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+/* =========================================*
+    COLOR SCHEME
+*  =========================================*/
+
+:root{
+  --root-bg: rgba(124, 96, 107, 0.5);
+  --prompt-font: #7C606B;
+  --grid-bg: rgba(196, 107, 174, 0.6);
+  --question-font: #7C606B;
+  --prompt-bg: #EED5C2;
+  --sections-bg: #e7a5c1;
+  --sections-bg-hover: #EED5C2;
+  --sections-bg-correct: #64b681;
+  --correct-font: #0d3d1e;
+  --sections-bg-wrong: rgb(202, 108, 108);
+  --wrong-font: rgb(99, 21, 21);
 }

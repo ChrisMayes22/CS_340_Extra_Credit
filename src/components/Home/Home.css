@@ -1,0 +1,53 @@
+.header--flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: url('../../images/pexels-dids-2911527.jpg');
+    height: 70vh;
+    width: 100vw;
+
+    justify-self: flex-start;
+}
+
+.footer--flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100vw;
+    height: 30vh;
+}
+
+.nav-button {
+  border-radius: 15px;
+  background: var(--prompt-bg);
+  color: var(--prompt-font);
+  border: solid 3px var(--prompt-font);
+  width: 42rem;
+  height: 9.8rem;
+  font-weight: bold;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.nav-button:hover {
+  color: var(--prompt-bg);
+  background: var(--prompt-font);
+  cursor: pointer;
+}
+
+.page-title {
+    font-size: 60rem;
+    letter-spacing: 10rem;
+}
+
+.attribution {
+  color: var(--sections-bg);
+  margin: 2rem;
+  background-color: black;
+  padding: 1rem;
+  border-radius: 10px;
+  align-self: flex-start; 
+}
